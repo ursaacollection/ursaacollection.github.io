@@ -1,2 +1,4 @@
 node_modules
 .DS_Store
+src/assets/earings_dump
+src/assets/earings/extra
