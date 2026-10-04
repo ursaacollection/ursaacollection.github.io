@@ -196,78 +196,107 @@
             const earRingItems = [
                 {
                     code: "E015",
-                    price: 150,
+                    price: 65,
                     thumbnail: "src/assets/earings/E015/e015_th.png",
+                    colors: [{ name: "Dusty Teal ", value: "#6AA6A0" }],
                 },
                 {
                     code: "E014",
-                    price: 150,
+                    price: 50,
                     thumbnail: "src/assets/earings/E014/e014_th.png",
+                    colors: [{ name: "Silver", value: "#D1D6D5" }],
                 },
                 {
                     code: "E013",
-                    price: 150,
+                    price: 170,
                     thumbnail: "src/assets/earings/E013/e013_th.png",
+                    colors: [{ name: "Rose Brown", value: "#906B65" }],
                 },
                 {
                     code: "E012",
-                    price: 150,
+                    price: 50,
                     thumbnail: "src/assets/earings/E012/e012_th.png",
+                    colors: [
+                        { name: "Yellow", value: "#C49B03" },
+                        {
+                            name: "Coral Rose",
+                            value: "#D68171",
+                            thumbnail: "src/assets/earings/E012/e012_a.png",
+                        },
+                    ],
                 },
                 {
                     code: "E011",
-                    price: 150,
+                    price: 110,
                     thumbnail: "src/assets/earings/E011/e011_th.png",
+                    colors: [{ name: "Berry Red", value: "#B2404F" }],
                 },
                 {
                     code: "E010",
-                    price: 150,
+                    price: 155,
                     thumbnail: "src/assets/earings/E010/e010_th.png",
+                    colors: [{ name: "Berry Red", value: "#B2404F" }],
                 },
                 {
                     code: "E009",
-                    price: 150,
+                    price: 90,
                     thumbnail: "src/assets/earings/E009/e009_th.png",
+                    colors: [{ name: "Rust Brown", value: "#8B4D37" }],
                 },
                 {
                     code: "E008",
-                    price: 150,
+                    price: 65,
                     thumbnail: "src/assets/earings/E008/e008_th.png",
+                    colors: [
+                        { name: "Yellow", value: "#C49B03" },
+                        {
+                            name: "Sandstone",
+                            value: "#B3A175",
+                            thumbnail: "src/assets/earings/E008/e008_a.png",
+                        },
+                    ],
                 },
                 {
                     code: "E007",
-                    price: 150,
+                    price: 100,
                     thumbnail: "src/assets/earings/E007/e007_th.png",
+                    colors: [{ name: "Silver", value: "#C0C0C0" }],
                 },
                 {
                     code: "E006",
-                    price: 150,
+                    price: 200,
                     thumbnail: "src/assets/earings/E006/e006_th.png",
+                    colors: [{ name: "Dusty Pink", value: "#CC888F" }],
                 },
                 {
                     code: "E005",
-                    price: 150,
+                    price: 50,
                     thumbnail: "src/assets/earings/E005/e005_th.png",
+                    colors: [{ name: "Yellow", value: "#C49B03" }],
                 },
                 {
                     code: "E004",
-                    price: 150,
+                    price: 110,
                     thumbnail: "src/assets/earings/E004/e004_th.png",
+                    colors: [{ name: "Dusty Pink", value: "#CC888F" }],
                 },
                 {
                     code: "E003",
-                    price: 150,
+                    price: 195,
                     thumbnail: "src/assets/earings/E003/e003_th.png",
+                    colors: [{ name: "Berry Red", value: "#B2404F" }],
                 },
                 {
                     code: "E002",
-                    price: 150,
+                    price: 50,
                     thumbnail: "src/assets/earings/E002/e002_th.png",
+                    colors: [{ name: "Silver", value: "#C0C0C0" }],
                 },
                 {
                     code: "E001",
-                    price: 100,
+                    price: 65,
                     thumbnail: "src/assets/earings/E001/e001_th.png",
+                    colors: [{ name: "Silver", value: "#C0C0C0" }],
                 },
             ];
 
@@ -278,19 +307,50 @@
                 const item = earRingItems[i];
 
                 const card = `
-                    <div class="col mb-5">
+                    <div class="col mb-4">
                         <div class="card h-100">
 
                             <!-- Product image -->
                             <img
+                              id="product-image-${item.code}"
                                 class="card-img-top"
+                                style="height: 280px !important; object-fit: cover !important; object-position: center !important; display: block !important;"
                                 src="${item.thumbnail}"
                                 alt="${item.code}"
                             />
 
-                            <!-- Product details -->
-                            <div class="card-body p-4">
-                                <div class="text-center">
+
+
+                              <div class="d-flex justify-content-end gap-1 mb-0 mt-1">
+                                  ${item.colors
+                                      .map(
+                                          (color) => `
+                                    <div
+                                      title="${color.name}"
+                                      style="
+                                        width: 18px;
+                                        height: 18px;
+                                        border-radius: 50%;
+                                        background-color: ${color.value};
+                                        border: 2px solid #fff;
+                                        box-shadow: 0 0 0 1px #ccc;
+                                        cursor: pointer;
+                                        transition: transform .15s ease, box-shadow .15s ease;
+                                      "
+                                      onclick="
+                                              document.getElementById(
+                                                  'product-image-${item.code}'
+                                              ).src = '${color.thumbnail || item.thumbnail}';
+                                          "
+                                      onmouseover="this.style.transform='scale(1.2)'; this.style.boxShadow='0 0 0 1px #212529'"
+                                      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 1px #ccc'"
+                                    ></div>
+                                  `,
+                                      )
+                                      .join("")}
+                                </div>
+
+                                <div class="text-center mb-3">
 
                                     <!-- Product name -->
                                     <h5 class="fw-bolder">
@@ -298,12 +358,11 @@
                                     </h5>
 
                                     <!-- Product price -->
-                                    Rs. ${item.price.toFixed(2)}
+                                    Rs. ${item.price}
 
                                 </div>
-                            </div>
 
-                            <!-- Product actions -->
+                            <!-- Product actions 
                             <div
                                 class="card-footer p-4 pt-0 border-top-0 bg-transparent"
                             >
@@ -316,9 +375,12 @@
                                     </a>
                                 </div>
                             </div>
+                            -->
 
                         </div>
                     </div>
+                            </div>
+
                 `;
 
                 productContainer.innerHTML += card;
