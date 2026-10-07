@@ -131,7 +131,7 @@
         <!-- Header-->
         <!-- <header class="bg-dark py-5"> -->
         <header class="py-5" style="background-color: #1d80ab">
-            <div class="container px-4 px-lg-5 my-5">
+            <div class="container px-4 px-lg-5 my-1">
                 <div class="text-center text-white">
                     <!-- Logo -->
 
@@ -171,8 +171,27 @@
         </header>
 
         <!-- Products Section -->
-        <section class="py-5">
+        <section class="py-2">
             <div class="container px-4 px-lg-5 mt-5">
+                <!-- Product Tabs -->
+                <div class="d-flex justify-content-center gap-3 mb-4">
+                    <button
+                        class="btn btn-dark active"
+                        id="earringsTab"
+                        onclick="showProducts('earrings')"
+                    >
+                        Earrings
+                    </button>
+
+                    <button
+                        class="btn btn-outline-dark"
+                        id="candlesTab"
+                        onclick="showProducts('candles')"
+                    >
+                        Candles
+                    </button>
+                </div>
+
                 <div
                     id="productContainer"
                     class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
@@ -198,7 +217,229 @@
         <script src="dist/js/scripts.js"></script>
 
         <!-- Product Data + Card Loop -->
+
         <script>
+            const earRingItems = [
+                {
+                    code: "E015",
+                    price: 65,
+                    thumbnail: "src/assets/earings/E015/e015_th.png",
+                    colors: [{ name: "Dusty Teal ", value: "#6AA6A0" }],
+                },
+                {
+                    code: "E014",
+                    price: 50,
+                    thumbnail: "src/assets/earings/E014/e014_th.png",
+                    colors: [{ name: "Silver", value: "#D1D6D5" }],
+                },
+                {
+                    code: "E013",
+                    price: 170,
+                    thumbnail: "src/assets/earings/E013/e013_th.png",
+                    colors: [{ name: "Rose Brown", value: "#906B65" }],
+                },
+                {
+                    code: "E012",
+                    price: 50,
+                    thumbnail: "src/assets/earings/E012/e012_th.png",
+                    colors: [
+                        { name: "Yellow", value: "#C49B03" },
+                        {
+                            name: "Coral Rose",
+                            value: "#D68171",
+                            thumbnail: "src/assets/earings/E012/e012_a.png",
+                        },
+                    ],
+                },
+                {
+                    code: "E011",
+                    price: 110,
+                    thumbnail: "src/assets/earings/E011/e011_th.png",
+                    colors: [{ name: "Berry Red", value: "#B2404F" }],
+                },
+                {
+                    code: "E010",
+                    price: 155,
+                    thumbnail: "src/assets/earings/E010/e010_th.png",
+                    colors: [{ name: "Berry Red", value: "#B2404F" }],
+                },
+                {
+                    code: "E009",
+                    price: 90,
+                    thumbnail: "src/assets/earings/E009/e009_th.png",
+                    colors: [{ name: "Rust Brown", value: "#8B4D37" }],
+                },
+                {
+                    code: "E008",
+                    price: 65,
+                    thumbnail: "src/assets/earings/E008/e008_th.png",
+                    colors: [
+                        { name: "Yellow", value: "#C49B03" },
+                        {
+                            name: "Sandstone",
+                            value: "#B3A175",
+                            thumbnail: "src/assets/earings/E008/e008_a.png",
+                        },
+                    ],
+                },
+                {
+                    code: "E007",
+                    price: 100,
+                    thumbnail: "src/assets/earings/E007/e007_th.png",
+                    colors: [{ name: "Silver", value: "#C0C0C0" }],
+                },
+                {
+                    code: "E006",
+                    price: 200,
+                    thumbnail: "src/assets/earings/E006/e006_th.png",
+                    colors: [{ name: "Dusty Pink", value: "#CC888F" }],
+                },
+                {
+                    code: "E005",
+                    price: 50,
+                    thumbnail: "src/assets/earings/E005/e005_th.png",
+                    colors: [{ name: "Yellow", value: "#C49B03" }],
+                },
+                {
+                    code: "E004",
+                    price: 110,
+                    thumbnail: "src/assets/earings/E004/e004_th.png",
+                    colors: [{ name: "Dusty Pink", value: "#CC888F" }],
+                },
+                {
+                    code: "E003",
+                    price: 195,
+                    thumbnail: "src/assets/earings/E003/e003_th.png",
+                    colors: [{ name: "Berry Red", value: "#B2404F" }],
+                },
+                {
+                    code: "E002",
+                    price: 50,
+                    thumbnail: "src/assets/earings/E002/e002_th.png",
+                    colors: [{ name: "Silver", value: "#C0C0C0" }],
+                },
+                {
+                    code: "E001",
+                    price: 65,
+                    thumbnail: "src/assets/earings/E001/e001_th.png",
+                    colors: [{ name: "Silver", value: "#C0C0C0" }],
+                },
+            ];
+
+            const candleItems = [
+                {
+                    name: "Scented Daisy Bloom Candle",
+                    code: "C001",
+                    price: "60 per piece",
+                    thumbnail: "src/assets/candles/C001/c001_th.png",
+                    colors: [{}],
+                },
+                {
+                    name: "Scented Floral Tin Candle",
+                    code: "C002",
+                    price: "40 per piece",
+                    thumbnail: "src/assets/candles/C002/c002_th.png",
+                    colors: [{}],
+                },
+                {
+                    name: "Scented Rosy Heart Candle",
+                    code: "C003",
+                    price: "50 per piece",
+                    thumbnail: "src/assets/candles/C003/c003_th.png",
+                    colors: [{}],
+                },
+            ];
+
+            const productContainer =
+                document.getElementById("productContainer");
+
+            function showProducts(category) {
+                const items =
+                    category === "earrings" ? earRingItems : candleItems;
+
+                productContainer.innerHTML = "";
+
+                items.forEach((item) => {
+                    const card = `
+                <div class="col mb-4">
+                    <div class="card h-100">
+
+                        <img
+                            id="product-image-${item.code}"
+                            class="card-img-top"
+                            style="
+                                height: 280px;
+                                object-fit: cover;
+                                object-position: center;
+                            "
+                            src="${item.thumbnail}"
+                            alt="${item.code}"
+                        />
+
+                        <div class="d-flex justify-content-end gap-1 mb-0 mt-1">
+                            ${item.colors
+                                .map(
+                                    (color) => `
+                                    <div
+                                        title="${color.name}"
+                                        style="
+                                            width: 18px;
+                                            height: 18px;
+                                            border-radius: 50%;
+                                            background-color: ${color.value};
+                                            border: 2px solid #fff;
+                                            box-shadow: 0 0 0 1px #ccc;
+                                            cursor: pointer;
+                                        "
+                                        onclick="
+                                            document.getElementById(
+                                                'product-image-${item.code}'
+                                            ).src =
+                                                '${color.thumbnail || item.thumbnail}';
+                                        "
+                                    ></div>
+                                `,
+                                )
+                                .join("")}
+                        </div>
+
+                        <div class="text-center mb-3">
+                            <h6 class="fw-bolder">
+                                ${item.name || ""}
+                            </h6>
+
+                            <h6 class="fw-bolder">
+                                ${item.code}
+                            </h6>
+
+                            Rs. ${item.price}
+
+                        </div>
+
+                    </div>
+                </div>
+            `;
+
+                    productContainer.innerHTML += card;
+                });
+
+                // Update active tab
+                document.getElementById("earringsTab").className =
+                    category === "earrings"
+                        ? "btn btn-dark"
+                        : "btn btn-outline-dark";
+
+                document.getElementById("candlesTab").className =
+                    category === "candles"
+                        ? "btn btn-dark"
+                        : "btn btn-outline-dark";
+            }
+
+            // Show earrings by default
+            showProducts("earrings");
+        </script>
+
+        <!-- <script>
             const earRingItems = [
                 {
                     code: "E015",
@@ -316,7 +557,6 @@
                     <div class="col mb-4">
                         <div class="card h-100">
 
-                            <!-- Product image -->
                             <img
                               id="product-image-${item.code}"
                                 class="card-img-top"
@@ -358,17 +598,14 @@
 
                                 <div class="text-center mb-3">
 
-                                    <!-- Product name -->
                                     <h5 class="fw-bolder">
                                         ${item.code}
                                     </h5>
 
-                                    <!-- Product price -->
                                     Rs. ${item.price}
 
                                 </div>
 
-                            <!-- Product actions 
                             <div
                                 class="card-footer p-4 pt-0 border-top-0 bg-transparent"
                             >
@@ -381,7 +618,6 @@
                                     </a>
                                 </div>
                             </div>
-                            -->
 
                         </div>
                     </div>
@@ -391,6 +627,6 @@
 
                 productContainer.innerHTML += card;
             }
-        </script>
+        </script> -->
     </body>
 </html>
