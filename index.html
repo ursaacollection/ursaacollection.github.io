@@ -221,13 +221,184 @@
 
         <!-- Product Data + Card Loop -->
 
+        <!-- colors 
+         Baby Pink : #F4C0DB
+         Mixed Blue Yellow: C9B5BE
+         Dusty Teal: 4E7075
+         Silver: D1D6D5
+         Black: 000000
+         Yellow: CFA574
+         Warm Grey: A9A0A1
+         Rose Pink: DB7080
+         Muted Plum: 735E63
+
+
+        -->
+
         <script>
             const earRingItems = [
+                // {
+                //     code: "E036",
+                //     price: 130,
+                //     thumbnail: "src/assets/earings/E036/e036_th.webp",
+                //     colors: [{ name: "Yellow", value: "#C49B03" }],
+                // },
+                {
+                    code: "E035",
+                    price: 60,
+                    thumbnail: "src/assets/earings/E035/e035_th.webp",
+                    colors: [{ name: "Baby Pink", value: "#F4C0DB" }],
+                },
+                {
+                    code: "E034",
+                    price: 130,
+                    thumbnail: "src/assets/earings/E034/e034_a_th.webp",
+                    colors: [
+                        { name: "Mixed Blue Yellow", value: "#C9B5BE" },
+                        {
+                            name: "Dusty Teal",
+                            value: "#4E7075",
+                            thumbnail: "src/assets/earings/E034/e034_b_th.webp",
+                        },
+                        {
+                            name: "Yellow",
+                            value: "#CFA574",
+                            thumbnail: "src/assets/earings/E034/e034_c_th.webp",
+                        },
+                        {
+                            name: "Silver",
+                            value: "#000000",
+                            thumbnail: "src/assets/earings/E034/e034_d_th.webp",
+                        },
+                        {
+                            name: "Warm Grey",
+                            value: "#A9A0A1",
+                            thumbnail: "src/assets/earings/E034/e034_e_th.webp",
+                        },
+                        {
+                            name: "Baby Pink",
+                            value: "#F4C0DB",
+                            thumbnail: "src/assets/earings/E034/e034_f_th.webp",
+                        },
+                    ],
+                },
+                {
+                    code: "E033",
+                    price: 50,
+                    thumbnail: "src/assets/earings/E033/e033_th.webp",
+                    colors: [{ name: "Black", value: "#000000" }],
+                },
+                {
+                    code: "E032",
+                    price: 90,
+                    thumbnail: "src/assets/earings/E032/e032_a_th.webp",
+                    colors: [
+                        { name: "Black", value: "#000000" },
+                        {
+                            name: "Silver",
+                            value: "#D1D6D5",
+                            thumbnail: "src/assets/earings/E032/e032_b_th.webp",
+                        },
+                    ],
+                },
+                {
+                    code: "E031",
+                    price: 60,
+                    thumbnail: "src/assets/earings/E031/e031_a_th.webp",
+                    colors: [
+                        { name: "Rose Pink", value: "#DB7080" },
+                        {
+                            name: "Yellow",
+                            value: "#CFA574",
+                            thumbnail: "src/assets/earings/E031/e031_b_th.webp",
+                        },
+                    ],
+                },
+                {
+                    code: "E030",
+                    price: 30,
+                    thumbnail: "src/assets/earings/E030/e030_th.webp",
+                    colors: [{ name: "Silver", value: "#D1D6D5" }],
+                },
+                {
+                    code: "E029",
+                    price: 100,
+                    thumbnail: "src/assets/earings/E029/e029_a_th.webp",
+                    colors: [
+                        { name: "Dusty Teal", value: "#4E7075" },
+                        {
+                            name: "Muted Plum",
+                            value: "#735E63",
+                            thumbnail: "src/assets/earings/E029/e029_b_th.webp",
+                        },
+                    ],
+                },
+                {
+                    code: "E028",
+                    price: 70,
+                    thumbnail: "src/assets/earings/E028/e028_a_th.webp",
+                    colors: [
+                        { name: "Red", value: "#B70617" },
+                        {
+                            name: "Silver",
+                            value: "#D1D6D5",
+                            thumbnail: "src/assets/earings/E028/e028_b_th.webp",
+                        },
+                    ],
+                },
+                {
+                    code: "E027",
+                    price: 80,
+                    thumbnail: "src/assets/earings/E027/e027_th.webp",
+                    colors: [{ name: "Red", value: "#B70617" }],
+                },
+                {
+                    code: "E026",
+                    price: 70,
+                    thumbnail: "src/assets/earings/E026/e026_th.webp",
+                    colors: [{ name: "Black", value: "#000000" }],
+                },
+                {
+                    code: "E025",
+                    price: 70,
+                    thumbnail: "src/assets/earings/E025/e025_a_th.webp",
+                    colors: [
+                        { name: "Muted Plum", value: "#735E63" },
+                        {
+                            name: "Dusty Teal",
+                            value: "#4E7075",
+                            thumbnail: "src/assets/earings/E025/e025_b_th.webp",
+                        },
+
+                        {
+                            name: "Warm Gray",
+                            value: "#9B928D",
+                            thumbnail: "src/assets/earings/E025/e025_c_th.webp",
+                        },
+                        {
+                            name: "Blush Pink",
+                            value: "#F2D3DB",
+                            thumbnail: "src/assets/earings/E025/e025_d_th.webp",
+                        },
+                    ],
+                },
                 {
                     code: "E024",
-                    price: 140,
-                    thumbnail: "src/assets/earings/E024/e024_th.webp",
-                    colors: [{ name: "Yellow", value: "#C49B03" }],
+                    price: 130,
+                    thumbnail: "src/assets/earings/E024/e024_a_th.webp",
+                    colors: [
+                        { name: "Silver", value: "#D1D6D5" },
+                        {
+                            name: "Black",
+                            value: "#000000",
+                            thumbnail: "src/assets/earings/E024/e024_b_th.webp",
+                        },
+                        {
+                            name: "Yellow",
+                            value: "#C49B03",
+                            thumbnail: "src/assets/earings/E024/e024_c_th.webp",
+                        },
+                    ],
                 },
                 {
                     code: "E023",
@@ -250,7 +421,7 @@
                 },
                 {
                     code: "E021",
-                    price: 80,
+                    price: 70,
                     thumbnail: "src/assets/earings/E021/e021_th.webp",
                     colors: [{ name: "Black", value: "#000000" }],
                 },
@@ -260,24 +431,24 @@
                     thumbnail: "src/assets/earings/E020/e020_th.webp",
                     colors: [{ name: "Dusty Pink", value: "#CC888F" }],
                 },
-                {
-                    code: "E019",
-                    price: 150,
-                    thumbnail: "src/assets/earings/E019/e019_th.webp",
-                    colors: [{ name: "Dusty Teal", value: "#6AA6A0" }],
-                },
-                {
-                    code: "E018",
-                    price: 150,
-                    thumbnail: "src/assets/earings/E018/e018_th.webp",
-                    colors: [{ name: "Dusty Pink", value: "#CC888F" }],
-                },
-                {
-                    code: "E017",
-                    price: 150,
-                    thumbnail: "src/assets/earings/E017/e017_th.webp",
-                    colors: [{ name: "Black", value: "#000000" }],
-                },
+                // {
+                //     code: "E019",
+                //     price: 130,
+                //     thumbnail: "src/assets/earings/E019/e019_th.webp",
+                //     colors: [{ name: "Dusty Teal", value: "#6AA6A0" }],
+                // },
+                // {
+                //     code: "E018",
+                //     price: 130,
+                //     thumbnail: "src/assets/earings/E018/e018_th.webp",
+                //     colors: [{ name: "Dusty Pink", value: "#CC888F" }],
+                // },
+                // {
+                //     code: "E017",
+                //     price: 130,
+                //     thumbnail: "src/assets/earings/E017/e017_th.webp",
+                //     colors: [{ name: "Black", value: "#000000" }],
+                // },
                 {
                     code: "E016",
                     price: 170,
@@ -288,7 +459,7 @@
                 {
                     code: "E015",
                     price: 65,
-                    thumbnail: "src/assets/earings/E015/e015_th.webp",
+                    thumbnail: "src/assets/earings/E015/e015_a_th.webp",
                     colors: [{ name: "Dusty Teal ", value: "#6AA6A0" }],
                 },
                 {
@@ -303,16 +474,47 @@
                     thumbnail: "src/assets/earings/E013/e013_th.webp",
                     colors: [{ name: "Rose Brown", value: "#906B65" }],
                 },
+
+                //         Baby Pink : #F4C0DB
+                //  Mixed Blue Yellow: C9B5BE
+                //  Dusty Teal: 4E7075
+                //  Silver: D1D6D5
+                //  Black: 000000
+                //  Yellow: CFA574
+                //  Warm Grey: A9A0A1
+                //  Rose Pink: DB7080
+                //  Muted Plum: 735E63
+
                 {
                     code: "E012",
                     price: 50,
-                    thumbnail: "src/assets/earings/E012/e012_th.webp",
+                    thumbnail: "src/assets/earings/E012/e012_a_th.webp",
                     colors: [
-                        { name: "Yellow", value: "#C49B03" },
+                        { name: "Baby Pink", value: "#F994C0" },
+                        // {
+                        //     name: "Coral Rose",
+                        //     value: "#D68171",
+                        //     thumbnail: "src/assets/earings/E012/e012_a_th.webp",
+                        // },
                         {
-                            name: "Coral Rose",
-                            value: "#D68171",
-                            thumbnail: "src/assets/earings/E012/e012_a_th.webp",
+                            name: "Light Pink",
+                            value: "#C08CA2",
+                            thumbnail: "src/assets/earings/E012/e012_b_th.webp",
+                        },
+                        {
+                            name: "Mixed Blue Yellow",
+                            value: "#C9B5BE",
+                            thumbnail: "src/assets/earings/E012/e012_c_th.webp",
+                        },
+                        {
+                            name: "Warm Grey",
+                            value: "#A9A0A1",
+                            thumbnail: "src/assets/earings/E012/e012_d_th.webp",
+                        },
+                        {
+                            name: "Yellow",
+                            value: "#C49B03",
+                            thumbnail: "src/assets/earings/E012/e012_e_th.webp",
                         },
                     ],
                 },
@@ -336,13 +538,13 @@
                 },
                 {
                     code: "E008",
-                    price: 65,
+                    price: 75,
                     thumbnail: "src/assets/earings/E008/e008_th.webp",
                     colors: [
                         { name: "Yellow", value: "#C49B03" },
                         {
-                            name: "Sandstone",
-                            value: "#B3A175",
+                            name: "Mixed Blue Yellow",
+                            value: "#C9B5BE",
                             thumbnail: "src/assets/earings/E008/e008_a_th.webp",
                         },
                     ],
@@ -361,7 +563,7 @@
                 },
                 {
                     code: "E005",
-                    price: 50,
+                    price: 90,
                     thumbnail: "src/assets/earings/E005/e005_th.webp",
                     colors: [{ name: "Yellow", value: "#C49B03" }],
                 },
@@ -369,7 +571,7 @@
                     code: "E004",
                     price: 110,
                     thumbnail: "src/assets/earings/E004/e004_th.webp",
-                    colors: [{ name: "Dusty Pink", value: "#CC888F" }],
+                    colors: [{ name: "Baby Pink", value: "#F994C0" }],
                 },
                 {
                     code: "E003",
